@@ -8,7 +8,12 @@ async function bootstrap() {
   
   // CORS 설정
   app.enableCors({
-    origin: ['http://localhost:3000', 'http://localhost:5173'],
+    origin: [
+      'http://localhost:3000', 
+      'http://localhost:5173',
+      'https://campuslife.dongyang.ac.kr',
+      'http://campuslife.dongyang.ac.kr',
+    ],
     credentials: true,
   });
 

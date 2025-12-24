@@ -4,6 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/dormitory/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -12,9 +13,10 @@ export default defineConfig({
   server: {
     port: 3000,
     proxy: {
-      '/api': {
+      '/dormitory/api': {
         target: 'http://localhost:3001',
         changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/dormitory/, ''),
       },
     },
   },

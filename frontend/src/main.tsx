@@ -18,7 +18,7 @@ const queryClient = new QueryClient({
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <BrowserRouter basename="/dormitory" future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <App />
         <Toaster position="top-center" />
       </BrowserRouter>

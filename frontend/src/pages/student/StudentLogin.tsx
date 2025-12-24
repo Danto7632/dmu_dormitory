@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import api from '../../lib/api';
 import { useAuthStore } from '../../stores/authStore';
@@ -44,7 +44,7 @@ export default function StudentLogin() {
       if (access_token && student) {
         setStudentAuth(access_token, student);
         toast.success(`${student.name}님 환영합니다!`);
-        window.location.href = '/student/home';
+        navigate('/student/home');
       }
     } catch (error: any) {
       toast.error(error.response?.data?.message || '로그인에 실패했습니다.');
@@ -106,12 +106,12 @@ export default function StudentLogin() {
         </form>
 
         <div className="mt-6 text-center">
-          <a
-            href="/admin/login"
+          <Link
+            to="/admin/login"
             className="text-sm text-primary-600 hover:text-primary-700"
           >
             관리자 로그인 →
-          </a>
+          </Link>
         </div>
       </div>
     </div>

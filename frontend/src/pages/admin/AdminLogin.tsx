@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import api from '../../lib/api';
 import { useAuthStore } from '../../stores/authStore';
@@ -43,7 +43,7 @@ export default function AdminLogin() {
         setAdminAuth(access_token, admin);
         toast.success(`${admin.name}님 환영합니다!`);
         // 직접 페이지 이동
-        window.location.href = '/admin/dashboard/status';
+        navigate('/admin/dashboard/status');
       } else {
         console.log('Invalid response:', response.data);
         toast.error('로그인 응답이 올바르지 않습니다.');
@@ -107,12 +107,12 @@ export default function AdminLogin() {
         </form>
 
         <div className="mt-6 text-center">
-          <a
-            href="/student/login"
+          <Link
+            to="/student/login"
             className="text-sm text-primary-600 hover:text-primary-700"
           >
             ← 학생 로그인으로
-          </a>
+          </Link>
         </div>
       </div>
     </div>

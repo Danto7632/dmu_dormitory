@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { format } from 'date-fns';
@@ -26,7 +26,7 @@ export default function StudentHome() {
   const [reason, setReason] = useState('');
 
   // 학생 정보 및 활성 외박 조회
-  const { data, isLoading, refetch } = useQuery<StudentMeResponse>({
+  const { data, isLoading } = useQuery<StudentMeResponse>({
     queryKey: ['studentMe'],
     queryFn: async () => {
       const response = await api.get('/student/me');

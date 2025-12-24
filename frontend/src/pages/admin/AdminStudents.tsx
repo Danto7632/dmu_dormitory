@@ -100,13 +100,6 @@ export default function AdminStudents() {
     }
   };
 
-  // 모달 성공 콜백
-  const handleModalSuccess = () => {
-    setIsModalOpen(false);
-    setSelectedStudent(null);
-    queryClient.invalidateQueries({ queryKey: ['adminStudents'] });
-  };
-
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -328,7 +321,6 @@ export default function AdminStudents() {
         }}
         student={selectedStudent}
         mode={modalMode}
-        onSuccess={handleModalSuccess}
       />
     </AdminLayout>
   );
